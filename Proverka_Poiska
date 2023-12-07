@@ -17,8 +17,10 @@ async function testWikiResult(){
     console.log('Нажать на поиск');  
     await page.click("#searchInput");
  
-    await page.screenshot({path: 'testWikiResult.png'});
+    await page.screenshot({path: 'testWikiResult1.png'});
 
     console.log('Закрытие браузера');
     await browser.close();
 }
+
+testWikiResult(); 
