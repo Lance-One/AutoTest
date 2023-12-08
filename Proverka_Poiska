@@ -15,8 +15,15 @@ async function testWikiResult(){
     await page.type("#searchInput","Дикие гуси (наёмники)", {delay:200});
     
     console.log('Нажать на поиск');  
-    await page.click("#searchInput");
- 
+    await page.click("#searchButton");
+
+    console.log('Нажать на слово для прокрутки скрола');
+    await page.click("#mw-content-text > div.mw-content-ltr.mw-parser-output > p:nth-child(3) > b");
+
+    console.log('Запросить первое слово с абзаца'); 
+    let t1 = await page.$eval("#mw-content-text > div.mw-content-ltr.mw-parser-output > p:nth-child(3) > b", e => e.innerText);
+    console.log(t1);
+  
     await page.screenshot({path: 'testWikiResult1.png'});
 
     console.log('Закрытие браузера');
